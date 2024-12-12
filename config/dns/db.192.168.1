@@ -1,0 +1,12 @@
+; BIND reverse data file for local loopback interface
+$TTL	604800
+@	IN	SOA	dns.izv.ies. root.izv.sol. (
+			      1		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+@	    IN	    NS	    dns.izv.sol.
+100	    IN	    PTR	    dns.izv.sol.
+101     IN      PTR     www.izv.sol. 
