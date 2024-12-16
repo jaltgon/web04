@@ -1,0 +1,18 @@
+<VirtualHost *:443>
+    ServerName www.izv.ies
+    ServerAlias www.izv.ies
+    DocumentRoot /var/www/izv.ies
+
+    SSLEngine on
+    SSLCertificateFile /etc/ssl/certs/server.crt
+    SSLCertificateKeyFile /etc/ssl/private/server.key
+
+    <Directory /var/www/izv.ies>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/izv.ies_error.log
+    CustomLog ${APACHE_LOG_DIR}/izv.ies_access.log combined
+</VirtualHost>
