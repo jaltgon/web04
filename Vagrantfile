@@ -59,15 +59,20 @@ Vagrant.configure("2") do |config|
       apt-get update
       apt-get install -y apache2
       apt-get install openssl
-      # sudo cp -v /vagrant/config/www/apache2.conf /etc/apache2
+      apt-get install ca-certificates
 
-      # TODO: Configurar sitio virtual
+       cp -v /vagrant/config/www/resolv.conf /etc
+      cp -v /vagrant/config/www/hosts /etc
+
+      cp -v /vagrant/config/www/ports.conf /etc/apache2
+      cp -v /vagrant/config/www/www.izv.ies.conf /etc/apache2/sites-available
+
+      sudo mkdir /var/www/izv.ies
+      cp -v /vagrant/config/www/index.html /var/www/izv.ies
    
-
-
-
-     # sudo a2dissite 000-default.conf
-     # sudo a2ensite www.izv.ies
+      sudo a2dissite 000-default.conf
+      sudo a2ensite www.izv.ies
+      sudo a2enmod ssl
 
      sudo systemctl restart apache2
      sudo systemctl status apache2
